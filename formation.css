@@ -1,0 +1,57 @@
+.album {
+  background-color: #444444;
+  color: white;
+}
+
+.album-title {
+  font-size: 30px;
+  padding: 20px;
+  /*background-color: #C68F8F;*/
+  color: white;
+}
+
+.song {
+  /*height: 50px;*/
+  border-top: 1px solid gray;
+  padding: 20px 20px 20px 0;
+}
+
+.song:hover {
+  background-color: #333333;
+  cursor: pointer;
+}
+body {
+  /*position: relative;*/
+  margin: 0;
+  margin-bottom: 100px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.controls {
+  position: fixed;
+  height: 100px;
+  padding: 20px;
+  background-color: #84DCC6;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.time-selector {
+  width: 50%;
+}
+
+.media-controls span {
+  font-size: 40px;
+}
+
+.audio-indicator {
+  width: 50px;
+  display: inline-block;
+}
+
+
+/*blackish #25DBAD*/
+/*white #FFFFFF*/
+/*purpleish #4B4E6D*/
+/*teal #84DCC6*/
+/*grayish 95A3B3*/

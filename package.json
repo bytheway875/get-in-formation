@@ -1,0 +1,26 @@
+{
+  "name": "get-in-formation",
+  "version": "1.0.0",
+  "description": "An HTML5/Javascript Audio Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytheway875/get-in-formation.git"
+  },
+  "keywords": [
+    "html5",
+    "audio",
+    "music",
+    "player",
+    "javascript"
+  ],
+  "author": "Shannon Byrne (@bytheway875)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bytheway875/get-in-formation/issues"
+  },
+  "homepage": "https://github.com/bytheway875/get-in-formation"
+}
