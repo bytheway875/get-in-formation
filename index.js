@@ -8,7 +8,6 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + "/public/views/formation.html");
 });
 
-
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Spinning up the app on!' + process.env.port || 3000)
+  console.log('Spinning up the app!')
 });

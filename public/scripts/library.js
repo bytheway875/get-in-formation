@@ -47,6 +47,38 @@ Library.prototype.getSongs = function(){
   return songs;
 }
 
+Library.prototype.bindKeyboardEvents = function(){
+  $(document).on("keypress, keydown", function(e){
+    console.log(e.keyCode)
+    if(e.keyCode == 32){
+      // console.log("spacebar")
+      this.startPlayback();
+    }
+    if(e.keyCode == 39){
+      // console.log("right arrow");
+      this.playNextSong();
+    }
+    if(e.keyCode == 37){
+      // console.log("left arrow");
+      this.playPreviousSong();
+    }
+  }.bind(this));
+}
+
+Library.prototype.bindUIElements = function(){
+  $('.controls .play-pause').click(function(){
+    this.startPlayback();
+  }.bind(this));
+
+  $('.controls .next').click(function(){
+    this.playNextSong();
+  }.bind(this));
+
+  $('.controls .back').click(function(){
+    this.playPreviousSong();
+  }.bind(this));
+}
+
 Library.prototype.insertDOMElements = function(){
   this.albums.forEach(function(album){
     album.appendToDOM($('body'));
@@ -57,27 +89,11 @@ Library.prototype.insertDOMElements = function(){
       this.currentlyPlaying.currentTime = $(event.target).val();
     }
   }.bind(this));
+  // bind keyboard events
 
-  $('.controls .play-pause').click(function(){
-    if(this.currentlyPlaying){
-      this.currentlyPlaying.togglePlay();
-    } else if(this.playlist) {
-      this.playlist[0].play();
-    } else {
-      var promise = new Promise(function(){
-        this.setPlaylist();
-      }.bind(this));
-      promise.then(this.playlist[0].play());
-    }
-  }.bind(this));
+  this.bindKeyboardEvents();
 
-  $('.controls .next').click(function(){
-    this.playNextSong();
-  }.bind(this));
-
-  $('.controls .back').click(function(){
-    this.playPreviousSong();
-  }.bind(this));
+  this.bindUIElements();
 }
 
 Library.prototype.updateCurrentlyPlayingElement = function(song){
@@ -106,6 +122,19 @@ Library.prototype.findAlbum = function(albumTitle, artistName){
 
 Library.prototype.findOrCreateAlbum = function(albumTitle, artist) {
   return this.findAlbum(albumTitle, artist) || this.createAlbum(albumTitle, artist);
+}
+
+Library.prototype.startPlayback = function(){
+  if(this.currentlyPlaying){
+    this.currentlyPlaying.togglePlay();
+  } else if(this.playlist) {
+    this.playlist[0].play();
+  } else {
+    var promise = new Promise(function(){
+      this.setPlaylist();
+    }.bind(this));
+    promise.then(this.playlist[0].play());
+  }
 }
 
 Library.prototype.setPlaylist = function(){
