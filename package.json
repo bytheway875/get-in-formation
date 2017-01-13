@@ -25,5 +25,9 @@
   "homepage": "https://github.com/bytheway875/get-in-formation",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "engines": {
+    "node": "7.4.0",
+    "npm": "4.0.5"
   }
 }
