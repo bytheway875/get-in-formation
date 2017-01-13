@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bytheway875/get-in-formation/issues"
   },
-  "homepage": "https://github.com/bytheway875/get-in-formation"
+  "homepage": "https://github.com/bytheway875/get-in-formation",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
