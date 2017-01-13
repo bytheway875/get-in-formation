@@ -49,17 +49,23 @@ Library.prototype.getSongs = function(){
 
 Library.prototype.bindKeyboardEvents = function(){
   $(document).on("keypress, keydown", function(e){
-    console.log(e.keyCode)
-    if(e.keyCode == 32){
-      // console.log("spacebar")
+
+    // Spacebar should play/pause
+    if(e.keyCode == 32 && e.target == document.body){
+      e.preventDefault(); // stop spacebar from scrolling
       this.startPlayback();
     }
-    if(e.keyCode == 39){
+
+    // Right Arrow should play next
+    if(e.keyCode == 39 && e.target == document.body){
       // console.log("right arrow");
+      e.preventDefault();
       this.playNextSong();
     }
-    if(e.keyCode == 37){
+    // Left Arrow should play previous
+    if(e.keyCode == 37 && e.target == document.body){
       // console.log("left arrow");
+      e.preventDefault();
       this.playPreviousSong();
     }
   }.bind(this));
